@@ -1,0 +1,123 @@
+:root {
+  font-size: 16px;
+  line-height: 1.5em;
+  --narrow: "Soehne", monospace;
+  --serif: "National", serif;
+  --base: calc(100vw / 1280 * 10);
+  --max-width: 80rem;
+  --medium-width: 60rem;
+  --readable-width: 40em;
+  --red: rgba(233, 3, 3, 1);
+	--tan: rgba(245, 237, 216, 1);
+
+	/* Theme colors */
+
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+	
+	--background-color: #fff;
+	
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+	
+	--syntax-tab-size: 2;
+}
+
+@font-face {
+  font-family: "Soehne";
+  src: url("/css/soehne-schmal-halbfett.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "National";
+  src: url("national-2-black.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "National";
+  src: url("national-2-medium.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@function rem($size) {
+  @return #{calc($size / 16)+rem};
+}
+ 
+@function base($size) {
+  @return #{calc(var(--base) / 10 * $size)};
+}
+ 
+@function range($size, $min) {
+  @return clamp(
+    #{rem($min)},
+    #{base($size)},
+    #{rem($size)}
+  );
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--tan);
+}
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	padding: 2.5%;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+.eyebrow {
+	font-family: var(--narrow);
+	text-transform: uppercase;
+	text-overflow: clip;
+	line-height: 0.8em;
+	text-align: center;
+	font-size: 12.6vw;
+	letter-spacing: 0.02em;
+	color: var(--red);
+}
+
+.eyebrow {
+}
+
+.main-headline {
+	font-family: "Soehne";
+	font-size: 200px;
+	text-transform: uppercase;
+}
+
+.grid {
+	background: transparent url(/img/grid.svg) no-repeat;
+	background-size: cover;
+}
