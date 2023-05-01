@@ -20,12 +20,41 @@
     );
 }
 
+@font-face {
+  font-family: "Soehne";
+  src: url("/css/soehne-schmal-halbfett.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "National";
+  src: url("national-2-black.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "National";
+  src: url("national-2-medium.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fraiche";
+  src: url("Fraiche.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 :root {
   font-size: 16px;
   line-height: 1.5em;
   --narrow: "Soehne", monospace;
   --blocky: "National", serif;
+  --rounded: "Fraiche", serif;
   --base: calc(100vw / 1280 * 10);
   --max-width: 80rem;
   --medium-width: 60rem;
@@ -48,27 +77,6 @@
 	--text-color-link-visited: #17050F;
 	
 	--syntax-tab-size: 2;
-}
-
-@font-face {
-  font-family: "Soehne";
-  src: url("/css/soehne-schmal-halbfett.woff2") format("woff2");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "National";
-  src: url("national-2-black.woff2") format("woff2");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "National";
-  src: url("national-2-medium.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
 }
 
 @function rem($size) {
@@ -247,13 +255,13 @@ html {
 	aspect-ratio: 1 / 1;
 	font-size: 1.5vw;
 	line-height: 1.2em;
-	// font-weight: bold;
+	letter-spacing: 0.05em;
 	padding: 1em;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: var(--tan);
-	font-family: var(--blocky);
+	font-family: var(--rounded);
 	text-transform: uppercase;
 
 	p {
