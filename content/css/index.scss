@@ -1,25 +1,3 @@
-@use "sass:math";
- 
-@function betterClamp($minSize, $maxSize, $minWidth: 640, $maxWidth: 2560) {
-    // source: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
-    // convert to rem
-    $minSize: math.div($minSize, 16);
-    $maxSize: math.div($maxSize, 16);
-    $maxWidth: math.div($maxWidth, 16);
-    $minWidth: math.div($minWidth, 16);
-    // do calculations
-    $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
-    $yAxisIntersection: -$minWidth * $slope + $minSize;
-    // output as rem
-    $minSize: $minSize * 1rem;
-    $maxSize: $maxSize * 1rem;
-    @return clamp(
-        #{$minSize},
-        #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
-        #{$maxSize}
-    );
-}
-
 @font-face {
   font-family: "Soehne";
   src: url("/css/soehne-schmal-halbfett.woff2") format("woff2");
@@ -48,35 +26,16 @@
   font-style: normal;
 }
 
-
 :root {
   font-size: 16px;
   line-height: 1.5em;
   --narrow: "Soehne", monospace;
   --blocky: "National", serif;
   --rounded: "Fraiche", serif;
-  --base: calc(100vw / 1280 * 10);
-  --max-width: 80rem;
-  --medium-width: 60rem;
-  --readable-width: 40em;
+  --base: calc(100vw / 4000 * 10);
   --red: rgba(233, 3, 3, 1);
 	--blue: rgba(41, 47, 100, 1);
 	--tan: rgba(245, 237, 216, 1);
-
-	/* Theme colors */
-
-	--color-gray-20: #e0e0e0;
-	--color-gray-50: #C0C0C0;
-	--color-gray-90: #333;
-	
-	--background-color: #fff;
-	
-	--text-color: var(--color-gray-90);
-	--text-color-link: #082840;
-	--text-color-link-active: #5f2b48;
-	--text-color-link-visited: #17050F;
-	
-	--syntax-tab-size: 2;
 }
 
 @function rem($size) {
@@ -95,7 +54,6 @@
   );
 }
 
-/* Global stylesheet */
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -105,31 +63,17 @@ html {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
+	margin: 0;
+	padding: 0;
 }
 
 html,
 body {
+	background-color: var(--tan);
+	color: var(--text-color);
+	font-family: var(--font-family);
 	padding: 0;
 	margin: 0 auto;
-	font-family: var(--font-family);
-	color: var(--text-color);
-	background-color: var(--tan);
-}
-
-html {
-	overflow-y: scroll;
-}
-
-
-/* https://www.a11yproject.com/posts/how-to-hide-content/ */
-.visually-hidden {
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	height: 1px;
-	overflow: hidden;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
 }
 
 .hero {
@@ -139,17 +83,16 @@ html {
 }
 
 .eyebrow {
-	font-family: var(--blocky);
-	font-weight: bold;
-	text-transform: uppercase;
-	text-overflow: clip;
-	line-height: 0.8em;
-	text-align: center;
-	// font-size: 11.6vw;
-	font-size: 5.95vw;
-	letter-spacing: 0.04em;
 	color: var(--red);
 	flex: 0 0 auto;
+	font-family: var(--blocky);
+	font-size: range(240, 16);
+	font-weight: bold;
+	line-height: 0.8em;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	text-align: center;
+	text-overflow: clip;
 }
 
 .grid {
@@ -160,7 +103,6 @@ html {
 	display: flex;
 	flex-direction: row;
   flex-wrap: nowrap;
-	gap: 0;
   align-items: stretch;
   justify-content: stretch;
 	aspect-ratio: 2 / 1;
@@ -186,23 +128,20 @@ html {
 	flex-basis: 64.5%;
 	position: relative;
 	margin-bottom: 7vw;
-	// transform: skew(0deg, -15deg);
-	// transform: matrix(0.98, -0.22, 0, 1, 0, 0);
 }
 
-.main-headline_container {
-	font-size: 3.5vw;
-	padding: 0.4em 0.8em;
+.main-headline__container {
+	font-size: range(180, 40);
 	background-color: var(--blue);
-	border-radius: 0.5em 0.5em 0.5em 0em;
+	border: range(23, 4) var(--tan) solid;
 	border-radius: 0.5em;
-	border: 0.16em var(--tan) solid;
 	display: inline-block;
-	z-index: 2;
+	padding: 0.4em 0.8em;
 	transform: matrix(0.98, -0.22, 0, 1, 0, 0);
+	z-index: 2;
 }
 
-.main-headline_container-inner {
+.main-headline__container-inner {
 	position: relative;
 }
 
@@ -235,17 +174,16 @@ html {
   font-size: 1em;
 }
 
-.subheadline_container {
-	font-size: 3.5vw;
-	line-height: 0.8em;
+.subheadline__container {
 	background-color: var(--tan);
-	border-radius: 0.3em;
+	border: 0.16em var(--blue) solid;
+	border-radius: 0.2em;
+	font-size: range(140, 20);
+	line-height: 0.8em;
 	margin-left: 0.6em;
 	padding: 0.3em 0.5em;
-	border-radius: 0.2em;
-	border: 0.16em var(--blue) solid;
-	z-index: 3;
 	transform: matrix(0.98, -0.22, 0, 1, 0, 0);
+	z-index: 3;
 }
 
 .subheadline {
