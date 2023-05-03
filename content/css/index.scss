@@ -1,3 +1,16 @@
+:root {
+	font-size: 16px;
+	line-height: 1.5em;
+	--narrow: "Soehne", monospace;
+	--blocky: "National", serif;
+	--rounded: "Fraiche", serif;
+	--base: calc(100vw / 4000 * 10);
+	--red: rgba(233, 3, 3, 1);
+	--blue: rgba(41, 47, 100, 1);
+	--tan: rgba(245, 237, 216, 1);
+}
+
+
 @font-face {
   font-family: "Soehne";
   src: url("/css/soehne-schmal-halbfett.woff2") format("woff2");
@@ -24,18 +37,6 @@
   src: url("Fraiche.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
-}
-
-:root {
-  font-size: 16px;
-  line-height: 1.5em;
-  --narrow: "Soehne", monospace;
-  --blocky: "National", serif;
-  --rounded: "Fraiche", serif;
-  --base: calc(100vw / 4000 * 10);
-  --red: rgba(233, 3, 3, 1);
-	--blue: rgba(41, 47, 100, 1);
-	--tan: rgba(245, 237, 216, 1);
 }
 
 @function rem($size) {
@@ -198,27 +199,26 @@ body {
 }
 
 .badge {
-	position: absolute;
-	left: 40%;
-	bottom: -5%;
-	width: 10vw;
+	align-items: center;
 	background: transparent url(/img/badge.svg) no-repeat center center;
 	background-size: contain;
+	color: var(--tan);
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	left: 40%;
+	top: 82%;
 	aspect-ratio: 1 / 1;
-	font-size: 1.5vw;
+	font-size: range(50,14);
 	line-height: 1.2em;
 	letter-spacing: 0.05em;
-	padding: 1em;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: var(--tan);
+	padding: 1.5em;
 	font-family: var(--rounded);
 	text-transform: uppercase;
 	transform: rotate(9deg);
 	z-index: 4;
 
-	p {
+	span {
 		display: block;
 		text-align: center;
 		margin: 0;
