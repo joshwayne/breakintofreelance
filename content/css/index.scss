@@ -70,7 +70,9 @@ html {
 
 html,
 body {
-	background-color: var(--tan);
+	background: var(--tan) url(/img/paper-texture.png) repeat;
+	background-size: 50%;
+	background-blend-mode: overlay;
 	color: var(--text-color);
 	font-family: var(--font-family);
 	padding: 0;
@@ -246,15 +248,31 @@ body {
 
 
 .coming-soon {
-	background: var(--red) url(/img/coming-soon.svg) repeat-x top;
-	padding: range(200, 100);
-	min-height: 102vh;
+	min-height: 104vh;
 	z-index: 100;
 	position: relative;
 	margin-top: 100vh;
 	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
+	flex-direction: column;
+}
+
+.coming-soon__doodle {
+	background: transparent url(/img/coming-soon.svg) repeat-x top;
+	height: range(60, 30);
+	width: 100%;
+}
+
+.coming-soon__body {
+	background-color: var(--red);
+	background: var(--red) url(/img/texture-red.png) repeat;
+	padding: range(200, 100);
+	flex: 1 0 0;
+	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 }
 
 .coming-soon__inner {
