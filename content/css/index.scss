@@ -117,9 +117,14 @@ body {
 	background: transparent url(/img/product.svg) no-repeat center;
 	background-size: contain;
 	flex-basis: 48%;
-	margin: -3vw 0 -3vw -4vw;
+	margin: -5vw 0 -3vw -4vw;
 	min-height: 40vw;
 	z-index: 5;
+}
+
+.product__inner {
+	height: 100%;
+	padding-bottom: range(200, 40);
 }
 
 .hero-text {
