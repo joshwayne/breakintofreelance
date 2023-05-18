@@ -7,10 +7,6 @@
 		<meta name="description" content="{{ description or metadata.description }}">
 		<meta name="generator" content="{{ eleventy.generator }}">
 
-		{#- Atom and JSON feeds included by default #}
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
-
 		<link rel="stylesheet" href="{{ '/css/index.css' | url }}">
 
 		<script src="/js/substackForm.js"></script>
