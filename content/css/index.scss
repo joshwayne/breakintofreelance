@@ -269,7 +269,7 @@ body {
 
 .coming-soon__body {
 	background-color: var(--red);
-	padding: range(200, 100);
+	padding: range(200, 40);
 	flex: 1 0 0;
 	display: flex;
 	align-items: center;
@@ -289,7 +289,7 @@ body {
 
 .coming-soon__header {
 	text-transform: uppercase;
-	font-size: range(320, 80);
+	font-size: range(320, 42);
 	letter-spacing: 0.02em;
 	line-height: 1em;
 	margin-bottom: range(48, 16);
@@ -319,7 +319,7 @@ body {
 }
 
 .form__inner > :last-child {
-	display: flex;
+	// display: flex;
 	align-items: flex-end;
 	flex-basis: var(--button-width);
 	flex-grow: 1;
@@ -365,6 +365,7 @@ label {
 	vertical-align: baseline;
 	height: 100%;
 	transition: transform 0.2s;
+	text-align: center;
 	
 	&:focus {
 		outline: range(23, 4) solid var(--tan);
