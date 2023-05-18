@@ -89,11 +89,11 @@ class SubstackForm extends HTMLElement {
             <p class="status error" id="substackInputError" data-inline data-form-error></p>
 
           </div>
-          <div class="button-container">
-            <button class="submit button button-inverse button-small" type="submit">
-              <span>${this.submit}</span>
-            </button>
-          </div>
+
+          <button class="button" type="submit">
+            <span>${this.submit}</span>
+          </button>
+
         </div>
         <div class="status-container">
           <div role="status" aria-busy="true" class="loader flow" tabindex="-1"></div>

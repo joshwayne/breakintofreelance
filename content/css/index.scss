@@ -305,6 +305,8 @@ body {
 	gap: 1em;
 	max-width: var(--max-width);
 	margin-inline: auto;
+	align-items: baseline;
+	justify-content: space-between;
 }
 
 .form__inner > :first-child {
@@ -328,27 +330,50 @@ label {
 }
 
 .input {
-	padding-inline: 0.5ch;
+	padding: 0.8em 1.2em;
 	width: 100%;
-	line-height: 2;
+	line-height: 2em;
 	font-family: inherit;
 	font-size: inherit;
 	border: range(23, 4) solid var(--tan);
+	border-radius: range(28, 4);
 	background-color: transparent;
 	font-size: range(90, 16);
 	color: var(--tan);
+
+	&::placeholder {
+		color: var(--tan);
+	}
+
+	&:focus {
+		outline: range(23, 4) solid var(--tan);
+		outline-offset: 0.2em;
+	}
 }
 
-.submit {
-	display: grid;
-	place-items: center;
-	width: 100%;
-	color: var(--button-text);
-	background-color: var(--brand-color);
-	font-weight: bold;
+
+.button {
+	color: var(--red);
+	background-color: var(--tan);
 	font-family: inherit;
 	font-size: inherit;
-	border-color: transparent;
+	border: range(23, 4) solid var(--tan);
+	border-radius: range(28, 4);
+	padding: 0.8em 1.2em;
+	line-height: 2em;
+	display: block;
+	vertical-align: baseline;
+	height: 100%;
+	transition: transform 0.2s;
+	
+	&:focus {
+		outline: range(23, 4) solid var(--tan);
+		outline-offset: 0.2em;
+	}
+	
+	&:active {
+		transform: translateY(0.2em);
+	}
 }
 
 .loader {
