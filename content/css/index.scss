@@ -295,6 +295,125 @@ body {
 	margin-bottom: range(48, 16);
 }
 
+.form-container {
+	margin-top: range(200, 40);
+}
+
+.form__inner {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	max-width: var(--max-width);
+	margin-inline: auto;
+}
+
+.form__inner > :first-child {
+	display: grid;
+	gap: 1em;
+	justify-items: start;
+	flex-basis: 0;
+	flex-grow: 999;
+	min-inline-size: 50%;
+}
+
+.form__inner > :last-child {
+	display: flex;
+	align-items: flex-end;
+	flex-basis: var(--button-width);
+	flex-grow: 1;
+}
+
+label {
+	display: none;
+}
+
+.input {
+	padding-inline: 0.5ch;
+	width: 100%;
+	line-height: 2;
+	font-family: inherit;
+	font-size: inherit;
+	border: range(23, 4) solid var(--tan);
+	background-color: transparent;
+	font-size: range(90, 16);
+	color: var(--tan);
+}
+
+.submit {
+	display: grid;
+	place-items: center;
+	width: 100%;
+	color: var(--button-text);
+	background-color: var(--brand-color);
+	font-weight: bold;
+	font-family: inherit;
+	font-size: inherit;
+	border-color: transparent;
+}
+
+.loader {
+	text-align: center;
+}
+
+.loader:focus {
+	outline: none;
+}
+
+.loading {
+	aspect-ratio: 1;
+	margin-inline: auto;
+	width: 3rem;
+	border: 5px solid #eaf0f6;
+	border-top-color: var(--brand-color);
+	animation: spinner 2s linear infinite;
+}
+
+.status {
+	--status-bg: var(--success-bg);
+	--status-text: var(--success-text);
+	padding: 1em;
+	margin-inline: auto;
+	max-width: 50ch;
+	border: 2px solid var(--status-text);
+	background-color: var(--status-bg);
+	color: var(--status-text);
+}
+
+.status:focus {
+	outline: none;
+}
+
+.status:empty {
+	display: none;
+}
+
+.status[data-inline] {
+	margin-inline: 0;
+	width: fit-content;
+}
+
+.status.error {
+	--status-bg: var(--error-bg);
+	--status-text: var(--error-text)
+}
+
+.status svg {
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+	display: inline-flex;
+	margin-right: 0.5ch;
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 /* Maximum aspect ratio */
 @media (max-aspect-ratio: 1/1) {
   .grid {

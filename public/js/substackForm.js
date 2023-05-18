@@ -60,134 +60,7 @@ class SubstackForm extends HTMLElement {
 
   getStyles() {
     return /* html */ `<style>
-      :host {
-        --max-width: ${this.width};
-        --button-width: ${this.buttonWidth};
-        --brand-color: var(--substack-brand, #881010);
-        --button-text: var(--substack-button-text, #f5f5f5);
-        --success-bg: var(--substack-success-bg, #bbf7c7);
-        --success-text: var(--substack-success-text, #0d7221);
-        --error-bg: var(--substack-error-bg, #fce8e8);
-        --error-text: var(--substack-error-text, #720d0d);
-      }
 
-      :host *,
-      :host *::before,
-      :host *::after {
-        box-sizing: border-box;
-      }
-
-      .form > * + * {
-        margin-top: var(--flow-space, 1em);
-      }
-
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        max-width: var(--max-width);
-        margin-inline: auto;
-      }
-
-      .container > :last-child {
-        display: flex;
-        align-items: flex-end;
-        flex-basis: var(--button-width);
-        flex-grow: 1;
-      }
-
-      .container > :first-child {
-        display: grid;
-        gap: 6px;
-        justify-items: start;
-        flex-basis: 0;
-        flex-grow: 999;
-        min-inline-size: 50%;
-      }
-
-      .input {
-        padding-inline: 0.5ch;
-        width: 100%;
-        line-height: 2;
-        font-family: inherit;
-        font-size: inherit;
-        border: 2px solid var(--brand-color);
-      }
-
-      .submit {
-        display: grid;
-        place-items: center;
-        width: 100%;
-        color: var(--button-text);
-        background-color: var(--brand-color);
-        font-weight: bold;
-        font-family: inherit;
-        font-size: inherit;
-        border-color: transparent;
-      }
-
-      .loader {
-        text-align: center;
-      }
-
-      .loader:focus {
-        outline: none;
-      }
-
-      .loading {
-        aspect-ratio: 1;
-        margin-inline: auto;
-        width: 3rem;
-        border: 5px solid #eaf0f6;
-        border-top-color: var(--brand-color);
-        animation: spinner 2s linear infinite;
-      }
-
-      .status {
-        --status-bg: var(--success-bg);
-        --status-text: var(--success-text);
-        padding: 1em;
-        margin-inline: auto;
-        max-width: 50ch;
-        border: 2px solid var(--status-text);
-        background-color: var(--status-bg);
-        color: var(--status-text);
-      }
-
-      .status:focus {
-        outline: none;
-      }
-
-      .status:empty {
-        display: none;
-      }
-
-      .status[data-inline] {
-        margin-inline: 0;
-        width: fit-content;
-      }
-
-      .status.error {
-        --status-bg: var(--error-bg);
-        --status-text: var(--error-text)
-      }
-
-      .status svg {
-        width: 1em;
-        height: 1em;
-        vertical-align: middle;
-        display: inline-flex;
-        margin-right: 0.5ch;
-      }
-
-      @keyframes spinner {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
     </style>`;
   }
 
@@ -195,32 +68,37 @@ class SubstackForm extends HTMLElement {
     const template = document.createElement("template");
 
     template.innerHTML =
-      /* html */
+			/* html */
 
-      `
+			`
       ${this.getStyles()}
 
       <style>
-        @import "/css/style.css";
+        @import "/css/index.css";
       </style>
       <form class="form" novalidate>
-        <div class="container">
-          <div>
-            <label class="label sr-only" for="substackForm">${
-              this.input
-            }</label>
-            <input class="input" id="substackForm" type="email" placeholder="Your email" aria-describedby="substackInputError" required  />
+        <div class="form__inner">
+          <div class="input-container">
+
+            <label class="label sr-only" for="substackForm">
+              ${this.input}
+            </label>
+
+            <input class="input" id="substackForm" type="email" placeholder="Your email" aria-describedby="substackInputError" required />
+
             <p class="status error" id="substackInputError" data-inline data-form-error></p>
+
           </div>
-          <div class="">
+          <div class="button-container">
             <button class="submit button button-inverse button-small" type="submit">
               <span>${this.submit}</span>
             </button>
           </div>
         </div>
-        <div role="status" aria-busy="true" class="loader flow" tabindex="-1">
+        <div class="status-container">
+          <div role="status" aria-busy="true" class="loader flow" tabindex="-1"></div>
+          <div role="status" class="status recursive-stack stack-small" tabindex="-1" data-form-state></div>
         </div>
-        <div role="status" class="status recursive-stack stack-small" tabindex="-1" data-form-state></div>
       </form>`;
 
     return template;
