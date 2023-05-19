@@ -61,9 +61,9 @@ html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
@@ -81,16 +81,16 @@ body {
 	display: flex;
   flex-direction: column;
 	padding: 1% 2% 4%;
-	position: fixed;
+	position: sticky;
 	z-index: 99;
-	top: 0;
+	top: -500px;
 }
 
 .eyebrow {
 	color: var(--red);
 	flex: 0 0 auto;
 	font-family: var(--blocky);
-	font-size: range(240, 16);
+	font-size: range(234, 16);
 	font-weight: bold;
 	line-height: 0.8em;
 	letter-spacing: 0.04em;
@@ -118,7 +118,6 @@ body {
 	background-size: contain;
 	flex-basis: 48%;
 	margin: -5vw 0 -3vw -4vw;
-	min-height: 40vw;
 	z-index: 5;
 }
 
@@ -167,6 +166,21 @@ body {
 	position: relative;
 }
 
+.main-headline:before {
+	content: attr(data-text);
+
+  position: absolute;
+  left: 0;
+	top: 0;
+  z-index: -1;
+	
+  -webkit-text-stroke: none;
+	text-shadow: 0px 0.1em 0px #666886; /* offset-x | offset-y | blur-radius | color */
+
+  /* is sized relative to h1 */
+  font-size: 1em;
+}
+
 .main-headline:after {
 	content: attr(data-text);
 
@@ -175,9 +189,7 @@ body {
 	top: 0;
   z-index: -1;
 	
-  /* visible stroke is 10px because of alignment */
   -webkit-text-stroke: 0.1em var(--blue);
-	text-shadow: 0px 0.1em 0px rgba(245, 236, 212, 0.3); /* offset-x | offset-y | blur-radius | color */
 
   /* is sized relative to h1 */
   font-size: 1em;
@@ -237,7 +249,7 @@ body {
   flex: 0 0 auto;
 	font-family: var(--blocky);
 	color: var(--red);
-	font-size: 2vw;
+	font-size: range(100, 24);
 	font-weight: bold;
 	text-align: center;
 	line-height: 1.2em;
@@ -444,15 +456,14 @@ label {
 @media (max-aspect-ratio: 1/1) {
   .grid {
     flex-direction: column;
-		align-items: center;
+		align-items: stretch;
   }
 	
 	.product {
-		aspect-ratio: 1/1;
-		min-height: 60vw;
-	}
-
-	.hero-text {
-		
+		aspect-ratio: 2 / 3;
+		height: auto;
+		flex-basis: 100%;
+		margin: -2vw -10vw -3vw;
+		height: 100vw;
 	}
 }
