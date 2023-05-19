@@ -91,12 +91,12 @@ class SubstackForm extends HTMLElement {
           </div>
 
           <button class="button" type="submit">
-            <span>${this.submit}</span>
+            <div class="loader"><span>${this.submit}</span></div>
           </button>
 
         </div>
         <div class="status-container">
-          <div role="status" aria-busy="true" class="loader flow" tabindex="-1"></div>
+          <div role="status" aria-busy="true" class="loaderr flow" tabindex="-1"></div>
           <div role="status" class="status recursive-stack stack-small" tabindex="-1" data-form-state></div>
         </div>
       </form>`;
@@ -139,30 +139,30 @@ class SubstackForm extends HTMLElement {
         announce.innerHTML = "";
         error.innerHTML = "";
         this.inputEmail = email.value;
-        loading.innerHTML = `<div class="loading"></div>
-        <p><b>Loading...</b></p>`;
+        loading.innerHTML = `<img class="spinner" src=/img/spinner.svg><span>Sending...</span>`;
         loading.focus();
         let request = await fetch(
-          "https://us-central1-substackapi.cloudfunctions.net/subscribe",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: this.inputEmail,
-              domain: this.domain,
-            }),
-          }
-        );
+					"https://us-central1-substackapi.cloudfunctions.net/subscribe",
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({
+							email: this.inputEmail,
+							domain: this.domain,
+							submit: this.submit,
+						}),
+					}
+				);
 
         // Get the response and show the message in the UI
         let response = await request.json();
-        loading.innerHTML = "";
+        loading.innerHTML = `<span>${this.submit}</span>`;
         if (this.successMessage) {
           announce.innerHTML = `<p>${this.successSvg} ${this.successMessage}</p>`;
         } else {
-          announce.innerHTML = `<p>Sweet. Finish signing up by clicking on the link in the confirmation email sent to <b>${this.inputEmail}</b>.</p><p><a href="#">I typed my email wrong.</a></p>`;
+          announce.innerHTML = `<p>Sweet. Finish signing up by clicking on the link in the confirmation email sent to <b>${this.inputEmail}</b>.</p>`;
         }
         announce.classList.remove("error");
         announce.classList.add("success");
