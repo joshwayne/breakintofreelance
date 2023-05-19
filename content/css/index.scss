@@ -82,8 +82,8 @@ body {
   flex-direction: column;
 	padding: 1% 2% 4%;
 	position: sticky;
-	z-index: 99;
-	top: -500px;
+	top: 0px;
+	min-height: 100vh;
 }
 
 .eyebrow {
@@ -96,7 +96,6 @@ body {
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
 	text-align: center;
-	text-overflow: clip;
 }
 
 .grid {
@@ -202,9 +201,11 @@ body {
 	font-size: range(140, 20);
 	line-height: 0.8em;
 	margin-left: 0.6em;
+	margin-top: -0.3em;
 	padding: 0.3em 0.5em;
 	transform: matrix(0.98, -0.22, 0, 1, 0, 0);
 	z-index: 3;
+	position: relative;
 }
 
 .subheadline {
@@ -226,7 +227,7 @@ body {
 	display: flex;
 	justify-content: center;
 	position: absolute;
-	left: 40%;
+	left: 50%;
 	top: 82%;
 	aspect-ratio: 1 / 1;
 	font-size: range(50,14);
@@ -235,7 +236,8 @@ body {
 	padding: 1.5em;
 	font-family: var(--rounded);
 	text-transform: uppercase;
-	transform: rotate(9deg);
+	// transform: rotate(9deg);
+	transform: matrix(1, 0.22, 0, 1, 0, 0) rotate(9deg);
 	z-index: 4;
 
 	span {
@@ -265,8 +267,8 @@ body {
 .coming-soon {
 	min-height: 104vh;
 	z-index: 100;
-	position: relative;
-	margin-top: 100vh;
+	position: sticky;
+	top: 0px;
 	display: flex;
 	align-items: stretch;
 	justify-content: stretch;
@@ -460,10 +462,8 @@ label {
   }
 	
 	.product {
-		aspect-ratio: 2 / 3;
-		height: auto;
-		flex-basis: 100%;
-		margin: -2vw -10vw -3vw;
-		height: 100vw;
+		margin: -2vw -4vw -3vw;
+		// height: auto;
+		// flex-basis: 100%;
 	}
 }
