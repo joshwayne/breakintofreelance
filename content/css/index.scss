@@ -81,9 +81,12 @@ body {
 	display: flex;
   flex-direction: column;
 	padding: 1% 2% 4%;
-	position: sticky;
-	top: 0px;
-	min-height: 100vh;
+	// position: fixed;
+	// top: 0;
+	// position: sticky;
+	// top: 0px;
+	// min-height: 100vh;
+	// overflow-y: scroll;
 }
 
 .eyebrow {
@@ -273,12 +276,14 @@ body {
 	align-items: stretch;
 	justify-content: stretch;
 	flex-direction: column;
+	// margin-top: 100vh;
 }
 
 .coming-soon__doodle {
 	background: transparent url(/img/coming-soon.svg) repeat-x top;
 	height: range(60, 30);
 	width: 100%;
+	margin-bottom: -2px;
 }
 
 .coming-soon__body {
