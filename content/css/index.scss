@@ -131,15 +131,13 @@ a {
 	flex-direction: column;
 	align-items: flex-start;
   justify-content: center;
-	margin-right: -3vw;
-	margin-left: -4vw;
+	margin: 0 -3vw 7vw -4vw;
 	flex-basis: 64.5%;
 	position: relative;
-	margin-bottom: 7vw;
 }
 
 .main-headline__container {
-	font-size: range(180, 42);
+	font-size: range(180, 32);
 	background-color: var(--blue);
 	border: range(23, 4) var(--tan) solid;
 	border-radius: 0.5em;
@@ -189,7 +187,7 @@ a {
 	background-color: var(--tan);
 	border: 0.16em var(--blue) solid;
 	border-radius: 0.2em;
-	font-size: range(140, 20);
+	font-size: range(140, 26);
 	line-height: 0.8em;
 	margin-left: 0.6em;
 	margin-top: -0.3em;
@@ -212,20 +210,20 @@ a {
 
 .badge {
 	align-items: center;
+	aspect-ratio: 1 / 1;
 	background: transparent url(/img/badge.svg) no-repeat center center;
 	background-size: contain;
 	color: var(--tan);
 	display: flex;
-	justify-content: center;
-	position: absolute;
-	left: 50%;
-	top: 82%;
-	aspect-ratio: 1 / 1;
+	font-family: var(--rounded);
 	font-size: range(50,14);
+	justify-content: center;
 	line-height: 1.2em;
 	letter-spacing: 0.05em;
 	padding: 1.5em;
-	font-family: var(--rounded);
+	position: absolute;
+	left: 50%;
+	top: 82%;
 	text-transform: uppercase;
 	transform: matrix(1, 0.22, 0, 1, 0, 0) rotate(9deg);
 	z-index: 4;
@@ -456,13 +454,42 @@ label {
 
 
 /* Maximum aspect ratio */
-@media (max-aspect-ratio: 1/1) {
+@media (max-width: 700px) {
   .grid {
     flex-direction: column;
 		align-items: stretch;
+		background-image: url(/img/grid_mobile.svg);
+		background-size: cover;
+		margin-bottom: 49vw;
+		padding-bottom: 18vw;
+		position: relative;
   }
 	
 	.product {
-		margin: -2vw -4vw -3vw;
+		margin: -3vw -4vw -3vw;
+		z-index: inherit;
+	}
+
+	.product__inner {
+		aspect-ratio: 1;
+	}
+
+	.hero-text {
+		margin-top: 7vw;
+		margin-bottom: -9vw;
+		position: absolute;
+		top: 82%;
+	}
+
+	.main-headline__container {
+		font-size: range(310, 26);
+	}
+
+	.subheadline__container {
+		font-size: range(250, 26);
+	}
+
+	.badge {
+		left: 72%;
 	}
 }

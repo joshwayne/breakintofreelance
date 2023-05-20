@@ -2,8 +2,8 @@ class SubstackForm extends HTMLElement {
   constructor() {
     super();
     this.errorSvg =
-      /* html */
-      `<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+			/* html */
+			`<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_2548_35167)">
       <path d="M40.0083 33.0013H38V37.0048H40.0083V33.0013Z" fill="#F5F4F0"/>
       <path d="M37.9991 28.9979H36.0039V33.0014H37.9991V28.9979Z" fill="#F5F4F0"/>
@@ -30,7 +30,7 @@ class SubstackForm extends HTMLElement {
       </g>
       <defs>
       <clipPath id="clip0_2548_35167">
-      <rect width="40" height="40" fill="white"/>
+      <rect width="40" height="40" fill="#F5EDD8"/>
       </clipPath>
       </defs>
       </svg>
