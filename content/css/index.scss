@@ -460,7 +460,7 @@ label {
 		align-items: stretch;
 		background-image: url(/img/grid_mobile.svg);
 		background-size: cover;
-		margin-bottom: 49vw;
+		margin-bottom: 55vw;
 		padding-bottom: 18vw;
 		position: relative;
   }
@@ -471,22 +471,22 @@ label {
 	}
 
 	.product__inner {
-		aspect-ratio: 1;
+		aspect-ratio: 10/12;
 	}
 
 	.hero-text {
-		margin-top: 7vw;
+		margin-top: 9vw;
 		margin-bottom: -9vw;
 		position: absolute;
 		top: 82%;
 	}
 
 	.main-headline__container {
-		font-size: range(310, 26);
+		font-size: range(300, 26);
 	}
 
 	.subheadline__container {
-		font-size: range(250, 26);
+		font-size: range(250, 22);
 	}
 
 	.badge {
