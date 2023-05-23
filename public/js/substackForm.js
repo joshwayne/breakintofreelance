@@ -90,7 +90,7 @@ class SubstackForm extends HTMLElement {
 
           </div>
 
-          <button class="button" type="submit">
+          <button class="button plausible-event-name=Signup" type="submit">
             <div class="loader"><span>${this.submit}</span></div>
           </button>
 
