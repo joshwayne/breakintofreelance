@@ -90,7 +90,7 @@ class SubstackForm extends HTMLElement {
 
           </div>
 
-          <button class="button plausible-event-name=Signup" type="submit">
+          <button class="button" type="submit">
             <div class="loader"><span>${this.submit}</span></div>
           </button>
 
@@ -166,6 +166,7 @@ class SubstackForm extends HTMLElement {
         }
         announce.classList.remove("error");
         announce.classList.add("success");
+        plausible("Signup");
       } catch (error) {
         // If something went wrong, show the error instead
 
