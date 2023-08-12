@@ -64,6 +64,11 @@ body {
 	font-size: 1.6rem;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-size: inherit;
+	line-height: 1em;
+}
+
 a {
 	color: inherit;
 }
@@ -131,16 +136,16 @@ a {
 
 .main-headline__container {
 	background-color: var(--blue);
-	border: 0.13em var(--tan) solid;
-	border-radius: 0.5em;
+	border: 0.065em var(--tan) solid;
+	border-radius: 0.25em;
 	display: inline-block;
 
 	--minFontSize: 2rem;
   --maxFontSize: 20rem;
-  --scaler: 4.5vw;
+  --scaler: 9vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 
-	padding: 0.4em 0.8em;
+	padding: 0.2em 0.4em;
 	transform: matrix(0.98, -0.22, 0, 1, 0, 0);
 	z-index: 2;
 }
@@ -154,7 +159,6 @@ a {
 	text-transform: uppercase;
 	padding: 0;
 	margin: 0;
-	line-height: 1em;
 	display: inline-block;
 	color: var(--tan);
 	letter-spacing: 0.02em;
@@ -183,17 +187,17 @@ a {
 
 .subheadline__container {
 	background-color: var(--tan);
-	border: 0.16em var(--blue) solid;
+	border: 0.17em var(--blue) solid;
 	border-radius: 0.2em;
 
 	--minFontSize: 1.5rem;
   --maxFontSize: 20rem;
-  --scaler: 3.5vw;
+  --scaler: 3.8vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 
 	line-height: 0.8em;
 	margin-left: 0.6em;
-	margin-top: -0.3em;
+	margin-top: -0.2em;
 	padding: 0.3em 0.5em;
 	transform: matrix(0.98, -0.22, 0, 1, 0, 0);
 	z-index: 3;
@@ -220,7 +224,7 @@ a {
 	display: flex;
 	font-family: var(--rounded);
 
-	--minFontSize: 1.5rem;
+	--minFontSize: 1.25rem;
   --maxFontSize: 20rem;
   --scaler: 1.5vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
@@ -513,16 +517,17 @@ label {
 
 	.main-headline__container {
 		--minFontSize: 2rem;
-		--maxFontSize: 15rem;
-		--scaler: 8vw;
+		--maxFontSize: 20rem;
+		--scaler: 16vw;
 		font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 	}
 
 	.subheadline__container {
 		--minFontSize: 1rem;
 		--maxFontSize: 15rem;
-		--scaler: 6.25vw;
+		--scaler: 7.25vw;
 		font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+		margin-top: -0.4em;
 	}
 
 	.badge {
