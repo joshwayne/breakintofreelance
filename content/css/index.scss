@@ -38,22 +38,6 @@
   font-style: normal;
 }
 
-// @function rem($size) {
-//   @return #{calc($size / 16)+rem};
-// }
- 
-// @function base($size) {
-//   @return #{calc(var(--base) / 10 * $size)};
-// }
- 
-// @function range($size, $min) {
-//   @return clamp(
-//     #{rem($min)},
-//     #{base($size)},
-//     #{rem($size)}
-//   );
-// }
-
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -147,7 +131,7 @@ a {
 
 .main-headline__container {
 	background-color: var(--blue);
-	// border: range(23, 4) var(--tan) solid;
+	border: 0.13em var(--tan) solid;
 	border-radius: 0.5em;
 	display: inline-block;
 
@@ -236,7 +220,7 @@ a {
 	display: flex;
 	font-family: var(--rounded);
 
-	--minFontSize: 0.8rem;
+	--minFontSize: 1.5rem;
   --maxFontSize: 20rem;
   --scaler: 1.5vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
@@ -264,7 +248,7 @@ a {
 	font-family: var(--blocky);
 	color: var(--red);
 
-  --minFontSize: 1.5rem;
+  --minFontSize: 2.5rem;
   --maxFontSize: 100rem;
   --scaler: 2.9vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
@@ -297,6 +281,7 @@ a {
 	background-size: auto 100%;
 	height: 4vw;
 	width: 100%;
+	margin-top: 1rem;
 	margin-bottom: -2px;
 }
 
@@ -313,7 +298,7 @@ a {
 	color: var(--tan);
 	font-family: var(--blocky);
 	
-  --minFontSize: 1.5rem;
+  --minFontSize: 2rem;
   --maxFontSize: 6rem;
   --scaler: 2vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
@@ -321,19 +306,24 @@ a {
 	line-height: 1.4em;
 	margin: 0 auto;
 	max-width: 60ch;
+	padding: 0 5vw;
 	text-align: center;
 }
 
 .coming-soon__header {
-	text-transform: uppercase;
-	// font-size: range(320, 42);
+	--minFontSize: 4.5rem;
+  --maxFontSize: 15rem;
+  --scaler: 8vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+
 	letter-spacing: 0.02em;
 	line-height: 1em;
-	// margin-bottom: range(48, 16);
+	margin-bottom: 0.15em;
+	text-transform: uppercase;
 }
 
 .form-container {
-	// margin-top: range(200, 40);
+	margin-top: 2.5em;
 }
 
 .form__inner {
@@ -374,44 +364,51 @@ label {
 }
 
 .input {
+	border: 0.25em solid var(--tan);
+	border-radius: 0.25em;
+	background-color: transparent;
+	color: var(--tan);
+
+	--minFontSize: 2rem;
+  --maxFontSize: 4rem;
+  --scaler: 2.3vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+
+	font-family: inherit;
+	line-height: 2em;
 	padding: 0.8em 1.2em;
 	width: 100%;
-	line-height: 2em;
-	font-family: inherit;
-	font-size: inherit;
-	// border: range(23, 4) solid var(--tan);
-	border-radius: range(28, 4);
-	background-color: transparent;
-	// font-size: range(90, 16);
-	color: var(--tan);
 
 	&::placeholder {
 		color: var(--tan);
 	}
 
 	&:focus {
-		// outline: range(23, 4) solid var(--tan);
+		outline: 0.25em solid var(--tan);
 		outline-offset: 0.2em;
 	}
 }
 
 .button {
 	color: var(--red);
-	background-color: var(--tan);
-	font-family: inherit;
-	font-size: inherit;
-	// border: range(23, 4) solid var(--tan);
-	// border-radius: range(28, 4);
-	padding: 0.8em 1.2em;
-	line-height: 2em;
-	display: block;
-	transition: transform 0.2s;
-	text-align: center;
 	cursor: pointer;
+	background-color: var(--tan);
+	display: block;
+	font-family: inherit;
+	--minFontSize: 2rem;
+  --maxFontSize: 4rem;
+  --scaler: 2.3vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+	border: 0.25em solid var(--tan);
+	border-radius: 0.25em;
+	line-height: 2em;
 	min-width: 10ch;
+	padding: 0.8em 1.2em;
+	text-align: center;
+	transition: transform 0.2s;
 
 	&:focus {
-		// outline: range(23, 4) solid var(--tan);
+		outline: 0.25em solid var(--tan);
 		outline-offset: 0.2em;
 	}
 	
@@ -493,7 +490,7 @@ label {
 		align-items: stretch;
 		background-image: url(/img/grid_mobile.svg);
 		background-size: cover;
-		margin-bottom: 55vw;
+		margin-bottom: 51vw;
 		padding-bottom: 18vw;
 		position: relative;
   }
@@ -515,11 +512,17 @@ label {
 	}
 
 	.main-headline__container {
-		// font-size: range(300, 26);
+		--minFontSize: 2rem;
+		--maxFontSize: 15rem;
+		--scaler: 8vw;
+		font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 	}
 
 	.subheadline__container {
-		// font-size: range(250, 22);
+		--minFontSize: 1rem;
+		--maxFontSize: 15rem;
+		--scaler: 6.25vw;
+		font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 	}
 
 	.badge {
