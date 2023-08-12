@@ -1,15 +1,14 @@
 :root {
 	font-size: 10px;
 	line-height: 1.5em;
+	--base: calc(100vw / 4000 * 10);
 	--narrow: "Soehne", monospace;
 	--blocky: "National", serif;
 	--rounded: "Fraiche", serif;
-	--base: calc(100vw / 4000 * 10);
 	--red: rgba(233, 3, 3, 1);
 	--blue: rgba(41, 47, 100, 1);
 	--tan: rgba(245, 237, 216, 1);
 }
-
 
 @font-face {
   font-family: "Soehne";
@@ -39,21 +38,21 @@
   font-style: normal;
 }
 
-@function rem($size) {
-  @return #{calc($size / 16)+rem};
-}
+// @function rem($size) {
+//   @return #{calc($size / 16)+rem};
+// }
  
-@function base($size) {
-  @return #{calc(var(--base) / 10 * $size)};
-}
+// @function base($size) {
+//   @return #{calc(var(--base) / 10 * $size)};
+// }
  
-@function range($size, $min) {
-  @return clamp(
-    #{rem($min)},
-    #{base($size)},
-    #{rem($size)}
-  );
-}
+// @function range($size, $min) {
+//   @return clamp(
+//     #{rem($min)},
+//     #{base($size)},
+//     #{rem($size)}
+//   );
+// }
 
 html {
   -webkit-box-sizing: border-box;
@@ -88,14 +87,20 @@ a {
 .hero {
 	display: flex;
   flex-direction: column;
-	padding: 1% 2% 4%;
+	padding: 1vw 2vw 4vw;
 }
 
 .eyebrow {
 	color: var(--red);
 	flex: 0 0 auto;
 	font-family: var(--blocky);
-	font-size: range(234, 16);
+	display: block;
+
+  --minFontSize: 1rem;
+  --maxFontSize: 20rem;
+  --scaler: 6vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+
 	font-weight: bold;
 	line-height: 0.8em;
 	letter-spacing: 0.04em;
@@ -106,8 +111,8 @@ a {
 .grid {
 	background: transparent url(/img/grid.svg) no-repeat;
 	background-size: contain;
-	margin: 1% 5% 2%;
-	width: 90%;
+	margin: 1vw 5vw 2vw;
+	width: 90vw;
 	display: flex;
 	flex-direction: row;
   flex-wrap: nowrap;
@@ -127,7 +132,7 @@ a {
 
 .product__inner {
 	height: 100%;
-	padding-bottom: range(200, 40);
+	padding-bottom: 5vw;
 }
 
 .hero-text {
@@ -141,11 +146,16 @@ a {
 }
 
 .main-headline__container {
-	font-size: range(180, 32);
 	background-color: var(--blue);
-	border: range(23, 4) var(--tan) solid;
+	// border: range(23, 4) var(--tan) solid;
 	border-radius: 0.5em;
 	display: inline-block;
+
+	--minFontSize: 2rem;
+  --maxFontSize: 20rem;
+  --scaler: 4.5vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+
 	padding: 0.4em 0.8em;
 	transform: matrix(0.98, -0.22, 0, 1, 0, 0);
 	z-index: 2;
@@ -191,7 +201,12 @@ a {
 	background-color: var(--tan);
 	border: 0.16em var(--blue) solid;
 	border-radius: 0.2em;
-	font-size: range(140, 26);
+
+	--minFontSize: 1.5rem;
+  --maxFontSize: 20rem;
+  --scaler: 3.5vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+
 	line-height: 0.8em;
 	margin-left: 0.6em;
 	margin-top: -0.3em;
@@ -220,7 +235,12 @@ a {
 	color: var(--tan);
 	display: flex;
 	font-family: var(--rounded);
-	font-size: range(50,14);
+
+	--minFontSize: 0.8rem;
+  --maxFontSize: 20rem;
+  --scaler: 1.5vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+
 	justify-content: center;
 	line-height: 1.2em;
 	letter-spacing: 0.05em;
@@ -243,7 +263,12 @@ a {
   flex: 0 0 auto;
 	font-family: var(--blocky);
 	color: var(--red);
-	font-size: range(100, 24);
+
+  --minFontSize: 1.5rem;
+  --maxFontSize: 100rem;
+  --scaler: 2.9vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+
 	font-weight: bold;
 	text-align: center;
 	line-height: 1.2em;
@@ -265,19 +290,18 @@ a {
 	align-items: stretch;
 	justify-content: stretch;
 	flex-direction: column;
-	// margin-top: 100vh;
 }
 
 .coming-soon__doodle {
 	background: transparent url(/img/coming-soon.svg) repeat-x top;
-	height: range(60, 30);
+	background-size: auto 100%;
+	height: 4vw;
 	width: 100%;
 	margin-bottom: -2px;
 }
 
 .coming-soon__body {
 	background-color: var(--red);
-	padding: range(200, 40);
 	flex: 1 0 0;
 	display: flex;
 	align-items: center;
@@ -286,25 +310,30 @@ a {
 }
 
 .coming-soon__inner {
-	max-width: range(3000, 400);
-	text-align: center;
-	margin: 0 auto;
-	font-family: var(--blocky);
 	color: var(--tan);
-	font-size: range(90, 16);
+	font-family: var(--blocky);
+	
+  --minFontSize: 1.5rem;
+  --maxFontSize: 6rem;
+  --scaler: 2vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+	
 	line-height: 1.4em;
+	margin: 0 auto;
+	max-width: 60ch;
+	text-align: center;
 }
 
 .coming-soon__header {
 	text-transform: uppercase;
-	font-size: range(320, 42);
+	// font-size: range(320, 42);
 	letter-spacing: 0.02em;
 	line-height: 1em;
-	margin-bottom: range(48, 16);
+	// margin-bottom: range(48, 16);
 }
 
 .form-container {
-	margin-top: range(200, 40);
+	// margin-top: range(200, 40);
 }
 
 .form__inner {
@@ -350,10 +379,10 @@ label {
 	line-height: 2em;
 	font-family: inherit;
 	font-size: inherit;
-	border: range(23, 4) solid var(--tan);
+	// border: range(23, 4) solid var(--tan);
 	border-radius: range(28, 4);
 	background-color: transparent;
-	font-size: range(90, 16);
+	// font-size: range(90, 16);
 	color: var(--tan);
 
 	&::placeholder {
@@ -361,7 +390,7 @@ label {
 	}
 
 	&:focus {
-		outline: range(23, 4) solid var(--tan);
+		// outline: range(23, 4) solid var(--tan);
 		outline-offset: 0.2em;
 	}
 }
@@ -371,8 +400,8 @@ label {
 	background-color: var(--tan);
 	font-family: inherit;
 	font-size: inherit;
-	border: range(23, 4) solid var(--tan);
-	border-radius: range(28, 4);
+	// border: range(23, 4) solid var(--tan);
+	// border-radius: range(28, 4);
 	padding: 0.8em 1.2em;
 	line-height: 2em;
 	display: block;
@@ -382,7 +411,7 @@ label {
 	min-width: 10ch;
 
 	&:focus {
-		outline: range(23, 4) solid var(--tan);
+		// outline: range(23, 4) solid var(--tan);
 		outline-offset: 0.2em;
 	}
 	
@@ -486,11 +515,11 @@ label {
 	}
 
 	.main-headline__container {
-		font-size: range(300, 26);
+		// font-size: range(300, 26);
 	}
 
 	.subheadline__container {
-		font-size: range(250, 22);
+		// font-size: range(250, 22);
 	}
 
 	.badge {
