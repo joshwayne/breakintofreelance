@@ -1,5 +1,5 @@
 :root {
-	font-size: 16px;
+	font-size: 10px;
 	line-height: 1.5em;
 	--narrow: "Soehne", monospace;
 	--blocky: "National", serif;
@@ -70,11 +70,15 @@ html {
 
 html,
 body {
+	padding: 0;
+	margin: 0 auto;
+}
+
+body {
 	background: var(--tan);
 	color: var(--text-color);
 	font-family: var(--font-family);
-	padding: 0;
-	margin: 0 auto;
+	font-size: 1.6rem;
 }
 
 a {
