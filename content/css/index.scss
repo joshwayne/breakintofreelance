@@ -60,8 +60,9 @@ body {
 body {
 	background: var(--tan);
 	color: var(--text-color);
-	font-family: var(--font-family);
+	font-family: var(--blocky);
 	font-size: 1.6rem;
+	color: var(--blue);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -268,11 +269,53 @@ a {
 	}
 }
 
+.section__header {
+	--minFontSize: 4.5rem;
+  --maxFontSize: 12rem;
+  --scaler: 8vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+
+	letter-spacing: 0.02em;
+	line-height: 1em;
+	margin-bottom: 0.5em;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.section__inner {
+	padding: 1vw 4vw 4vw;
+}
+
+.lesson-list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	gap: 2%;
+	
+	li {
+		--minFontSize: 2rem;
+		--maxFontSize: 6rem;
+		--scaler: 1.5vw;
+		font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+		
+		flex: 1 0 49%;
+		list-style: none;
+		margin-bottom: 0.15em;
+		max-width: 90rem;
+		padding: 1em 0;
+		line-height: 1.2em;
+		border-bottom: 0.18em var(--blue) solid;
+	}
+}
+
 
 .coming-soon {
 	min-height: 104vh;
 	z-index: 100;
-	position: sticky;
+	// position: sticky;
+	position: relative;
 	top: 0px;
 	display: flex;
 	align-items: stretch;
