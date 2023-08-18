@@ -67,7 +67,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-size: inherit;
-	line-height: 1em;
+	line-height: 1.2em;
 }
 
 a {
@@ -88,7 +88,7 @@ a {
 
   --minFontSize: 1rem;
   --maxFontSize: 20rem;
-  --scaler: 6vw;
+  --scaler: 5.9vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 
 	font-weight: bold;
@@ -101,8 +101,8 @@ a {
 .grid {
 	background: transparent url(/img/grid.svg) no-repeat;
 	background-size: contain;
-	margin: 1vw 5vw 2vw;
-	width: 90vw;
+	margin: 1vw 3vw 2vw;
+	// width: 90vw;
 	display: flex;
 	flex-direction: row;
   flex-wrap: nowrap;
@@ -163,6 +163,7 @@ a {
 	display: inline-block;
 	color: var(--tan);
 	letter-spacing: 0.02em;
+	line-height: 1em;
 	padding-bottom: 0.05em;
 	position: relative;
 }
@@ -235,7 +236,7 @@ a {
 	letter-spacing: 0.05em;
 	padding: 1.2em;
 	position: absolute;
-	left: 50%;
+	left: 65%;
 	top: 82%;
 	text-transform: uppercase;
 	transform: matrix(1, 0.22, 0, 1, 0, 0) rotate(9deg);
@@ -283,7 +284,51 @@ a {
 }
 
 .section__inner {
-	padding: 1vw 4vw 4vw;
+	padding: 4vw;
+}
+
+.main-copy {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.main-copy__header {
+	--minFontSize: 2.5rem;
+  --maxFontSize: 100rem;
+  --scaler: 2.9vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+
+	margin: 0 auto;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+	max-width: 30ch;
+	text-align: center;
+}
+
+.main-copy__body {
+	--minFontSize: 2rem;
+	--maxFontSize: 6rem;
+	--scaler: 1.5vw;
+	font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+	line-height: 1.5em;
+	margin: 0 auto;
+	max-width: 50ch;
+	min-width: 25ch;
+
+	p {
+		margin-bottom: 1em;
+	}
+
+	ul, ol {
+		margin-left: 1.5em;
+		margin-bottom: 1em;
+	}
+
+	li {
+		margin-bottom: 0.5em;
+	}
 }
 
 .lesson-list {
@@ -302,7 +347,7 @@ a {
 		
 		flex: 1 0 49%;
 		list-style: none;
-		margin-bottom: 0.15em;
+		margin-bottom: 0em;
 		max-width: 90rem;
 		padding: 1em 0;
 		line-height: 1.2em;
@@ -310,15 +355,12 @@ a {
 	}
 }
 
-.about {
-
-}
-
 .about__sections {
 	display: flex;
 	justify-content: center;
 	gap: 5%;
 	padding: 1vw 4vw 4vw;
+	flex-wrap: wrap;
 }
 
 .about__copy {
@@ -336,7 +378,8 @@ a {
 }
 
 
-.coming-soon {
+
+.cta {
 	min-height: 104vh;
 	z-index: 100;
 	// position: sticky;
@@ -348,8 +391,8 @@ a {
 	flex-direction: column;
 }
 
-.coming-soon__doodle {
-	background: transparent url(/img/coming-soon.svg) repeat-x top;
+.cta__doodle {
+	background: transparent url(/img/squiggle.svg) repeat-x top;
 	background-size: auto 100%;
 	height: 4vw;
 	width: 100%;
@@ -357,7 +400,7 @@ a {
 	margin-bottom: -2px;
 }
 
-.coming-soon__body {
+.cta__body {
 	background-color: var(--red);
 	flex: 1 0 0;
 	display: flex;
@@ -366,7 +409,7 @@ a {
 	flex-direction: column;
 }
 
-.coming-soon__inner {
+.cta__inner {
 	color: var(--tan);
 	font-family: var(--blocky);
 	
@@ -382,7 +425,7 @@ a {
 	text-align: center;
 }
 
-.coming-soon__header {
+.cta__header {
 	--minFontSize: 4.5rem;
   --maxFontSize: 15rem;
   --scaler: 8vw;
