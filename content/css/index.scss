@@ -334,15 +334,15 @@ a {
 	}
 }
 
-.questions {
-	padding-left: 0;
-}
+// .questions {
+// 	padding-left: 0;
+// }
 
-.question {
-	font-family: var(--rounded);
-	letter-spacing: 0.02em;
-	list-style: none;
-}
+// .question {
+// 	font-family: var(--rounded);
+// 	letter-spacing: 0.02em;
+// 	list-style: none;
+// }
 
 .lesson-list {
 	display: flex;
@@ -380,14 +380,16 @@ a {
 .about__photo {
 	flex: 1 2 30%;
 	margin-bottom: 2em;
-	max-width: 70rem;
+	max-width: 60rem;
+	position: relative;
 	
 	img {
 		display: block;
 		width: 100%;
+		z-index: 2;
+
 	}
 }
-
 
 
 .about__copy {
