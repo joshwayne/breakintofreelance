@@ -43,6 +43,7 @@ html {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -102,7 +103,7 @@ a {
 	background: transparent url(/img/grid.svg) no-repeat;
 	background-size: contain;
 	margin: 1vw 3vw 2vw;
-	// width: 90vw;
+	width: 90vw;
 	display: flex;
 	flex-direction: row;
   flex-wrap: nowrap;
@@ -333,6 +334,10 @@ a {
 	}
 }
 
+.questions {
+	padding-left: 0;
+}
+
 .question {
 	font-family: var(--rounded);
 	letter-spacing: 0.02em;
@@ -422,32 +427,55 @@ a {
 	font-family: var(--blocky);
 	
   --minFontSize: 2rem;
-  --maxFontSize: 6rem;
+  --maxFontSize: 7rem;
   --scaler: 2vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 	
 	line-height: 1.4em;
 	margin: 0 auto;
-	max-width: 60ch;
-	padding: 0 5vw;
+	padding: 5rem 2vw 10vw;
 	text-align: center;
 }
 
 .cta__header__container {
 	background-color: var(--red);
-	border: 0.065em var(--tan) solid;
+	border: 0.08em var(--tan) solid;
 	border-radius: 0.25em;
 	display: inline-block;
 
 	--minFontSize: 2rem;
   --maxFontSize: 20rem;
-  --scaler: 9vw;
+  --scaler: 10vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 
 	margin: 1em 0;
-	padding: 0.2em 0.4em;
+	padding: 0.15em 0.3em 0.2em;
 	transform: matrix(0.98, -0.22, 0, 1, 0, 0);
 	z-index: 2;
+}
+
+.cta__accent-top {
+	background: transparent url(/img/accents-top-red.svg) no-repeat top left;
+	background-size: contain;
+	width: 0.5em;
+	height: 0.5em;
+	display: block;
+	position: absolute;
+	top: -40%;
+	left: -11%;
+	transform: matrix(1, 0.22, 0, 1, 0, 0);
+}
+
+.cta__accent-bottom {
+	background: transparent url(/img/accents-bottom-red.svg) no-repeat top left;
+	background-size: contain;
+	width: 0.5em;
+	height: 0.5em;
+	display: block;
+	position: absolute;
+	bottom: -45%;
+	right: -10%;
+	transform: matrix(1, 0.22, 0, 1, 0, 0);
 }
 
 .cta__header__container-inner {
@@ -489,9 +517,9 @@ a {
 }
 
 .cta-box {
-	max-width: 26ch;
-	border: 1rem solid var(--tan);
-	border-radius: 0.4em;
+	max-width: 36ch;
+	border: 0.4em solid var(--tan);
+	border-radius: 0.3em;
 	margin: 0 auto;
 	padding: 1em;
 }
@@ -507,6 +535,10 @@ a {
 .included-list {
 	list-style: none;
 	margin: 1em 0;
+
+	li {
+		margin-bottom: 0.4em;
+	}
 }
 
 .button {
@@ -537,8 +569,6 @@ a {
 		transform: translateY(0.2em);
 	}
 }
-
-
 
 
 /* Maximum aspect ratio */
