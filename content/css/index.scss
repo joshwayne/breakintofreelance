@@ -374,7 +374,21 @@ a {
 	gap: 5%;
 	padding: 1vw 4vw 4vw;
 	flex-wrap: wrap;
+	flex-direction: row;
 }
+
+.about__photo {
+	flex: 1 2 30%;
+	margin-bottom: 2em;
+	max-width: 70rem;
+	
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+
+
 
 .about__copy {
 	--minFontSize: 2rem;
@@ -384,6 +398,7 @@ a {
 	line-height: 1.5em;
 	max-width: 50ch;
 	min-width: 30ch;
+	flex: 3 1 70%;
 
 	p {
 		margin-bottom: 1em;
