@@ -286,7 +286,7 @@ a {
 }
 
 .section__inner {
-	padding: 4vw;
+	padding: 6vw;
 }
 
 .main-copy {
@@ -311,14 +311,18 @@ a {
 }
 
 .main-copy__body {
-	--minFontSize: 2rem;
+	--minFontSize: 1.8rem;
 	--maxFontSize: 6rem;
-	--scaler: 1.5vw;
+	--scaler: 1.6vw;
 	font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 	line-height: 1.5em;
 	margin: 0 auto;
 	max-width: 50ch;
 	min-width: 25ch;
+
+	h3 {
+		margin-bottom: 0.5em;
+	}
 
 	p {
 		margin-bottom: 1em;
@@ -450,7 +454,7 @@ a {
 	
 	line-height: 1.4em;
 	margin: 0 auto;
-	padding: 5rem 5vw 10rem;
+	padding: 5vw 5vw 15vw;
 	text-align: center;
 	overflow: hidden;
 }
@@ -463,7 +467,7 @@ a {
 
 	--minFontSize: 2rem;
   --maxFontSize: 20rem;
-  --scaler: 10vw;
+  --scaler: 14vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 
 	margin: 1em 0;
