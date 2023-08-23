@@ -410,7 +410,7 @@ a {
 
 
 .cta {
-	min-height: 104vh;
+	// min-height: 104vh;
 	z-index: 100;
 	// position: sticky;
 	position: relative;
@@ -538,7 +538,8 @@ a {
 	border: 0.4em solid var(--tan);
 	border-radius: 0.3em;
 	margin: 0 auto;
-	padding: 1em;
+	padding: 2em;
+	position: relative;
 }
 
 .cta-box__header {
@@ -558,24 +559,39 @@ a {
 	}
 }
 
+.avatar-red {
+	background: transparent url(/img/avatar-red.svg) no-repeat top left;
+	background-size: contain;
+	width: 8em;
+	height: 6em;
+	display: block;
+	position: absolute;
+	bottom: -12%;
+	right: -15%;
+	z-index: 1;
+}
+
 .button {
 	color: var(--red);
 	cursor: pointer;
 	background-color: var(--tan);
 	display: block;
 	font-family: inherit;
+	font-weight: bold;
 	--minFontSize: 2rem;
-  --maxFontSize: 4rem;
-  --scaler: 2.3vw;
+  --maxFontSize: 5rem;
+  --scaler: 3vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 	border: 0.25em solid var(--tan);
 	border-radius: 0.25em;
-	line-height: 2em;
+	line-height: 1.2em;
 	min-width: 10ch;
 	padding: 0.8em 1.2em;
 	text-align: center;
 	text-decoration: none;
 	transition: transform 0.2s;
+	position: relative;
+	z-index: 2;
 
 	&:focus {
 		outline: 0.25em solid var(--tan);
