@@ -78,7 +78,7 @@ a {
 .hero {
 	display: flex;
   flex-direction: column;
-	padding: 1vw 2vw 4vw;
+	padding: 1vw 2vw 2vw;
 }
 
 .eyebrow {
@@ -275,7 +275,7 @@ a {
 .section__header {
 	--minFontSize: 4.5rem;
   --maxFontSize: 12rem;
-  --scaler: 8vw;
+  --scaler: 7vw;
   font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
 
 	letter-spacing: 0.02em;
@@ -608,6 +608,24 @@ a {
 	}
 }
 
+.button.inverse {
+	color: var(--tan);
+	background-color: var(--red);
+	max-width: 30ch;
+	margin: 0 auto;
+	border-color: var(--red);
+	margin-bottom: 10vw;
+
+	&:focus {
+		outline: 0.25em solid var(--red);
+		outline-offset: 0.2em;
+	}
+	
+	&:active {
+		transform: translateY(0.2em);
+	}
+}
+
 .faqs {
 	color: var(--tan);
 	--minFontSize: 1.8rem;
@@ -637,6 +655,10 @@ a {
 
 	li {
 		margin-bottom: 0.5em;
+	}
+
+	.button {
+		margin-top: 2em;
 	}
 }
 
