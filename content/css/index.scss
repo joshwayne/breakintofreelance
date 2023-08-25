@@ -608,6 +608,38 @@ a {
 	}
 }
 
+.faqs {
+	color: var(--tan);
+	--minFontSize: 1.8rem;
+	--maxFontSize: 6rem;
+	--scaler: 1.6vw;
+	font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+	line-height: 1.5em;
+	margin: 0 auto 5em;
+	max-width: 50ch;
+	min-width: 25ch;
+	padding: 1.5em;
+
+	h3 {
+		font-size: 1.2em;
+		margin: 2em 0 0.5em;
+		letter-spacing: 0.03em;
+	}
+
+	p {
+		margin-bottom: 1em;
+	}
+
+	ul, ol {
+		margin-left: 1.5em;
+		margin-bottom: 1em;
+	}
+
+	li {
+		margin-bottom: 0.5em;
+	}
+}
+
 
 /* Maximum aspect ratio */
 @media (max-width: 700px) {
