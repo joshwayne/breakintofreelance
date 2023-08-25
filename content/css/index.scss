@@ -662,6 +662,18 @@ a {
 	}
 }
 
+.legal {
+	margin-bottom: 2rem;
+	color: var(--tan);
+	text-align: center;
+	padding: 1rem;
+
+	img {
+    display: inline-block;
+    vertical-align: text-bottom;
+  }
+}
+
 
 /* Maximum aspect ratio */
 @media (max-width: 700px) {
